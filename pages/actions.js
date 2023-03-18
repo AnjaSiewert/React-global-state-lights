@@ -1,7 +1,11 @@
 import Link from "../components/Link";
 import QuickActions from "../components/QuickActions";
 
-export default function Actions({ onToggleAllLightsOn, onToggleAllLightsOff }) {
+export default function Actions({
+  onToggleAllLightsOn,
+  onToggleAllLightsOff,
+  countOfLightsTurnedOn,
+}) {
   return (
     <>
       <Link href="/">← Back home</Link>
@@ -9,6 +13,7 @@ export default function Actions({ onToggleAllLightsOn, onToggleAllLightsOff }) {
       <QuickActions
         onToggleAllLightsOn={onToggleAllLightsOn}
         onToggleAllLightsOff={onToggleAllLightsOff}
+        countOfLightsTurnedOn={countOfLightsTurnedOn}
       />
     </>
   );
