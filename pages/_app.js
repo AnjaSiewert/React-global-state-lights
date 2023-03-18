@@ -24,10 +24,36 @@ export default function App({ Component, pageProps }) {
     );
   }
 
+  const lightCount = lights.map((light) => light.isOn);
+  const countOfLightsTurnedOn = lightCount.reduce((a, b) => a + b);
+
+  function toggleAllLightsOn() {
+    setLights(
+      lights.map((light) => {
+        return { ...light, isOn: true };
+      })
+    );
+  }
+
+  function toggleAllLightsOff() {
+    setLights(
+      lights.map((light) => {
+        return { ...light, isOn: false };
+      })
+    );
+  }
+
   return (
     <Layout>
       <GlobalStyle />
-      <Component {...pageProps} lights={lights} onToggle={handleToggle} />
+      <Component
+        {...pageProps}
+        lights={lights}
+        onToggle={handleToggle}
+        countOfLightsTurnedOn={countOfLightsTurnedOn}
+        onToggleAllLightsOn={toggleAllLightsOn}
+        onToggleAllLightsOff={toggleAllLightsOff}
+      />
     </Layout>
   );
 }
